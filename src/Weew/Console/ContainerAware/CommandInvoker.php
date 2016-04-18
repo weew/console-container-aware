@@ -36,9 +36,11 @@ class CommandInvoker implements ICommandInvoker {
     /**
      * @param object $handler
      * @param ICommand $command
+     *
+     * @return mixed
      */
     public function setup($handler, ICommand $command) {
-        $this->container->callMethod($handler, 'setup', [
+        return $this->container->callMethod($handler, 'setup', [
             'command' => $command,
             'cmd' => $command
         ]);
@@ -49,9 +51,11 @@ class CommandInvoker implements ICommandInvoker {
      * @param IInput $input
      * @param IOutput $output
      * @param IConsole $console
+     *
+     * @return mixed
      */
     public function run($handler, IInput $input, IOutput $output, IConsole $console) {
-        $this->container->callMethod($handler, 'run', [
+        return $this->container->callMethod($handler, 'run', [
             'input' => $input,
             'in' => $input,
             'output' => $output,

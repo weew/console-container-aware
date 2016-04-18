@@ -10,6 +10,10 @@ use Weew\ConsoleArguments\ICommand;
 
 class FakeCommand {
     public function __construct(stdClass $object) {}
-    public function setup(ICommand $command, ICommand $cmd) {}
-    public function run(IInput $input, IInput $in, IOutput $output, IOutput $out, IConsole $console) {}
+    public function setup(ICommand $command, ICommand $cmd) {
+        return 'setup';
+    }
+    public function run(IInput $input, IInput $in, IOutput $output, IOutput $out, IConsole $console) {
+        return 'run';
+    }
 }

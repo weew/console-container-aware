@@ -33,7 +33,7 @@ class CommandInvokerSpec extends ObjectBehavior {
         $command = new FakeCommand(new stdClass());
         $consoleCommand = new Command();
 
-        $this->setup($command, $consoleCommand);
+        $this->setup($command, $consoleCommand)->shouldBe('setup');
     }
 
     function it_runs() {
@@ -42,6 +42,6 @@ class CommandInvokerSpec extends ObjectBehavior {
         $output = new Output();
         $console = new Console();
 
-        $this->run($command, $input, $output, $console);
+        $this->run($command, $input, $output, $console)->shouldBe('run');
     }
 }

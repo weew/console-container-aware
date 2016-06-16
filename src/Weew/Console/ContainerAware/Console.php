@@ -3,6 +3,10 @@
 namespace Weew\Console\ContainerAware;
 
 use Weew\Console\Console as BaseConsole;
+use Weew\Console\IInput;
+use Weew\Console\Input;
+use Weew\Console\IOutput;
+use Weew\Console\Output;
 use Weew\Container\IContainer;
 
 class Console extends BaseConsole {
@@ -18,7 +22,10 @@ class Console extends BaseConsole {
      */
     public function __construct(IContainer $container) {
         parent::__construct();
+
         $this->setContainer($container);
+        $this->getContainer()->set([IInput::class, Input::class], $this->getInput());
+        $this->getContainer()->set([IOutput::class, Output::class], $this->getOutput());
     }
 
     /**
